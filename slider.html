@@ -1,0 +1,311 @@
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>スライドショー</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                background-color: #f0f0f0;
+                padding: 20px;
+            }
+
+            .slider-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                padding: 10px 0;
+                box-sizing: border-box;
+            }
+
+            .card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                width: 300px;
+                margin-right: 20px;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+            }
+
+            .card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .card-description {
+                padding: 20px;
+            }
+
+            .card-description h3 {
+                margin: 0 0 10px;
+                font-size: 18px;
+            }
+
+            .favorite {
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            .favorite svg {
+                width: 20px;
+                height: 20px;
+                fill: red;
+                margin-right: 5px;
+            }
+
+            .progress-bar {
+                width: 100%;
+                background-color: #f3f3f3;
+                border-radius: 5px;
+                overflow: hidden;
+                margin-top: 10px;
+            }
+
+            .progress-bar-inner {
+                height: 10px;
+                background-color: #4caf50;
+                width: 0;
+            }
+
+            .more-card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: #000;
+                text-decoration: none;
+                width: 300px;
+                flex-shrink: 0;
+                text-align: center;
+                height: 260px;
+            }
+
+            .slick-prev, .slick-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 30px;
+                height: 30px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 1;
+                font-size: 20px;
+            }
+
+            .slick-prev {
+                left: 10px;
+            }
+
+            .slick-next {
+                right: 10px;
+            }
+
+            .slick-prev:before, .slick-next:before {
+                content: "";
+            }
+
+            .slick-prev:after, .slick-next:after {
+                content: "";
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+                display: inline-block;
+                padding: 5px;
+            }
+
+            .slick-prev:after {
+                transform: rotate(135deg);
+            }
+
+            .slick-next:after {
+                transform: rotate(-45deg);
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    </head>
+    <body>
+        <div class="slider-container">
+            <div class="slider" id="card-slider">
+                <!-- Cards will be dynamically generated here -->
+            </div>
+        </div>
+        <script>
+            // カードのデータを配列として定義
+            const cardsData = [
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                {
+                    imageUrl: "https://imagedelivery.net/QondspN4HIUvB_R16-ddAQ/5e8eca959df163366e893559/795380accb7930d21d39.png/fit=cover,w=805,h=575",
+                    title: "恐ろしい化学物質DHMOを規制するために支援をお願いします",
+                    favoriteCount: 123,
+                    progressPercentage: 50
+                },
+                // Add more card data here
+            ];
+
+            // カードを動的に生成する関数
+            function createCard(cardData) {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                const cardImage = document.createElement("div");
+                cardImage.classList.add("card-image");
+                const img = document.createElement("img");
+                img.src = cardData.imageUrl;
+                img.alt = cardData.title;
+                cardImage.appendChild(img);
+                card.appendChild(cardImage);
+
+                const cardDescription = document.createElement("div");
+                cardDescription.classList.add("card-description");
+                const h3 = document.createElement("h3");
+                h3.textContent = cardData.title;
+                cardDescription.appendChild(h3);
+                const favorite = document.createElement("div");
+                favorite.classList.add("favorite");
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute("viewBox", "0 0 24 24");
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
+                svg.appendChild(path);
+                favorite.appendChild(svg);
+                const span = document.createElement("span");
+                span.textContent = cardData.favoriteCount;
+                favorite.appendChild(span);
+                cardDescription.appendChild(favorite);
+                const progressBar = document.createElement("div");
+                progressBar.classList.add("progress-bar");
+                const progressBarInner = document.createElement("div");
+                progressBarInner.classList.add("progress-bar-inner");
+                progressBarInner.style.width = cardData.progressPercentage + "%";
+                progressBar.appendChild(progressBarInner);
+                cardDescription.appendChild(progressBar);
+                card.appendChild(cardDescription);
+
+                return card;
+            }
+
+            // カードをスライダーに追加
+            const cardSlider = document.getElementById("card-slider");
+            cardsData.slice(0, 7).forEach(cardData => {
+                const card = createCard(cardData);
+                cardSlider.appendChild(card);
+            });
+
+            // "もっと見る"カードを追加
+            const moreCard = document.createElement("a");
+            moreCard.href = "your-link-here";
+            moreCard.classList.add("card", "more-card");
+            const moreCardContent = document.createElement("div");
+            moreCardContent.classList.add("more-card-content");
+            moreCardContent.textContent = "もっと見る";
+            moreCard.appendChild(moreCardContent);
+            cardSlider.appendChild(moreCard);
+
+            // Initialize the Slick slider
+            $(document).ready(function(){
+                $('.slider').slick({
+                    dots: false,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    prevArrow: '<button type="button" class="slick-prev"></button>',
+                    nextArrow: '<button type="button" class="slick-next"></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                                infinite: true,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        </script>
+    </body>
+    </html>        

@@ -1,0 +1,99 @@
+/*背景色の設定*/
+body{background-color:#e5ffff} /*サイトの背景色調整。画像が見やすいように青にしてる部分もあるので好きにしてください*/
+/*バナー画像のサイズ*/
+#banner{width:750px; /*バナー画像の横サイズ。縦は一旦自動調整にしてます*/
+        height:auto
+}
+/* 横並び */
+.flex {
+  display: flex; /*横並び*/
+}
+.flex .image {
+  width:150px; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.flex .text {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+/*改行用class*/
+.ss {
+  margin-bottom: 0.5em;
+}
+
+/* 画像を天地中央表示 */
+
+.flex .image::before {
+  content: "";
+  display: block;
+  padding-top: 58%;
+}
+.flex .image img {
+  width:150px; /*バナー下の画像（並んでるやつ）サイズ指定横*/
+  height:100px;/*バナー下の画像（並んでるやつ）サイズ指定縦*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*以下棒グラフのCSS*/
+.graph-cont{
+  width: calc(100% - 40px);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.bar23{
+  height: 30px;
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  line-height: 30px;
+  font-size: 16px;
+  color: white;
+  padding: 0 0 0 10px;
+  position: relative;
+}
+
+.bar23::before{
+  content:'';
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 30px;
+  top: 0;
+  z-index: 0;
+  background: #ecf0f1;
+}
+.bar23::after{
+  content: '';
+  background: #daa520;
+  height: 30px;
+  transition: 0.7s;
+  display: block;
+  width: 100%;
+  -webkit-animation: bar-before 1 1.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  max-width: 60%;/*ここの数字をいじればグラフの長さが変わる*/
+}
+/*箱で文字を囲むためのクラス*/
+.box{
+  align:"right"
+  width:500px;
+  margin: 5em;
+  border: solid 1px #000000;/*pxをいじると箱の枠線の太さ・#をいじると箱の枠線の色*/
+  background-color: #ffffff;/*箱の背景色*/
+}
+/*バナー画像のサイズ*/
+#banner{width:750px;
+        height:auto
+}
