@@ -1,0 +1,50 @@
+@import url(https://plot-hub.com/code_example/lib/css/reset.css);
+body {
+    background-color: #ADE0EE;
+}
+.content {
+    width:600px;
+    margin: 50px auto;
+    border: 1px solid #ff8243;
+    padding:30px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.control {
+    font-size: 24px;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+input {
+    border-bottom: 1px solid #ff8243;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px;
+}
+button {
+    font-size: 16px;
+    width: 100%;
+    background-color: #ff8243;
+    color: #ADE0EE;
+    padding: 15px;
+    text-align: center;
+    margin-top:20px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgb(0, 0, 0, .2);
+}
+input:focus {
+    outline: none;
+}
+input:focus::placeholder {
+    color: transparent;
+}
