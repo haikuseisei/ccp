@@ -100,10 +100,16 @@ h1 {
   text-align: center;
   padding: 3px;
   opacity: 0;
+  box-shadow: 0 0 8px rgb(0, 0, 0, .4);
 }
 .topBtn img {
   width: 100%;
   height: 100%;
+}
+
+.topBtn:hover {
+    transform: scale(1.05,1.05);
+    cursor : pointer;
 }
 
 /*スライドショーのCSS*/

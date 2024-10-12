@@ -10,18 +10,37 @@
         <!--その他OGPの設定をする-->
         <link rel="stylesheet" href="../css/top.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+        <!--以下ハンバーガーメニューの類-->
+        <link rel="stylesheet" type="text/css" href="../css/top_slide.css">
     </head>
     <body>
-        <header>
+        <header style="height:60px;">
             <!--後でheader.htmlと合わせる-->
         </header>
-        
+
+        <!--トップに戻るボタン-->
         <div class="topBtn"><img src="../img/topBtn.png"></div>
 
+        <!--ハンバーガーメニュー-->
+        <div class="openbtn"><span></span><span></span><span></span></div>
+        
+        
         <main>
                 <!--スライドショー-->
                 <div class="Slideshow">
                     <ul class="slider">
+                        <li>
+                            <div class="content" style="width: 100%;">
+                            <a href="#">
+                                <img src="../img/sample.png">
+                                <h2>タイトル</h2>
+                                <p>お気に入り数:10</p>
+                                <div class="tasseiritsu">
+                                    <p>達成率:100%</p>
+                                </div>
+                            </a>
+                            </div>
+                        </li>
                         <li>
                             <div class="content" style="width: 100%;">
                             <a href="#">
@@ -781,7 +800,12 @@
             });
         </script>
 
+        <!--ハンバーガーメニュー-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="../js/top_slide.js"></script>
 
+
+            
         <!--ページトップに戻るボタン-->
         <script src="../js/topBtn.js"></script>
     </body>
