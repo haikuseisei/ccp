@@ -87,11 +87,14 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 }
 /*箱で文字を囲むためのクラス*/
 .box{
-  align:"right"
+  text-align:"center";
   width:500px;
   margin: 5em;
   border: solid 1px #000000;/*pxをいじると箱の枠線の太さ・#をいじると箱の枠線の色*/
   background-color: #ffffff;/*箱の背景色*/
+}
+.comment_display{
+  text-align: right;
 }
 /*バナー画像のサイズ*/
 #banner{width:750px;
@@ -99,7 +102,7 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 }
 
 /*画像カルーセル*/
-{
+.slider{/*←ここのセレクタ勝手につけたよby岸本to勝村*/
   box-sizing: border-box;
 }
  
@@ -244,12 +247,12 @@ button{
     cursol:pointer;
 }
 button input{
-    display: none;
+  display: none;
 }
 a{
-    height:15px;
-    cursor:pointer;
+  height:15px;
+  cursor:pointer;
 }
 textarea{
-    border-radius:10px
+  border-radius:10px;
 }
