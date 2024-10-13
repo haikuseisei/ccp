@@ -91,18 +91,35 @@
                                 $_REQUEST['message'] = '';
                                 $_REQUEST['username'] = '';
                             }
+                            //正常時のコメ入力欄表示
+                            echo '
+                            <!--コメント入力欄-->
+                            <form method="post" action="CCP_プロジェクト詳細.php">
+                            <p>ニックネーム：<br>
+                            <input type="text" name="name" size="30"></p>
+                            <p>メッセージ：<br>
+                            <textarea name="message" cols="30" rows="5"></textarea></p>
+                            <p><input type="submit" value="送信する"></p>
+                            </form>
+                            ';
+                        } else{
+                            //未入力時のコメ入力欄表示
+                            echo '
+                            <!--コメント入力欄-->
+                            <p style="color:red;">未入力箇所があります<p>
+                            <form method="post" action="CCP_プロジェクト詳細.php">
+                            <p>ニックネーム：<br>
+                            <input type="text" name="name" size="30" value="'; if (isset($_REQUEST['name'])){echo $_REQUEST['name'];} echo'"></p>
+                            <p>メッセージ：<br>
+                            <textarea name="message" cols="30" rows="5">'; if (isset($_REQUEST['comment'])){echo $_REQUEST['comment'];} echo '</textarea></p>
+                            <p><input type="submit" value="送信する"></p>
+                            </form>
+                            ';
                         }
                     }
                     
                     ?>
-                    <!--コメント入力欄-->
-                    <form method="post" action="CCP_プロジェクト詳細.php">
-                        <p>ニックネーム：<br>
-                        <input type="text" name="name" size="30"></p>
-                        <p>メッセージ：<br>
-                        <textarea name="message" cols="30" rows="5"></textarea></p>
-                        <p><input type="submit" value="送信する"></p>
-                    </form>
+                    
                 </div>
                 <div class="comment_display">
                     <?php
