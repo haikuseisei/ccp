@@ -68,24 +68,29 @@
             <div class="box">
                 <h2>みんなのコメント</h2>
                 <div class="comment_input">
-                    <h2>みんなのコメント</h2>
                     <?php
                     //コメントをDBに追加
                     if (isset($_REQUEST['message']) && isset($_REQUEST['name'])) {
                         if (!empty($_REQUEST['message']) && !empty($_REQUEST['name'])){
-                        //$comment = $_REQUEST['message'];
-                        $comment = htmlspecialchars($_REQUEST['message']);//SQLインジェクション対応済み？
-                        $time = date("Y/m/d H:i:s");
-                        $username = htmlspecialchars($_REQUEST['name']);//SQLインジェクション対応済み？
-                        
-                        
-                        $sql = $pdo->prepare('insert into comment_test (`time`, `script`,`username`) value(?, ?,?)');
-                        $sql->execute([$time,$comment,$username]);
-                        $comment = '';
-                        $time = '';
-                        $username = '';
-                        $_REQUEST['message'] = '';
-                        $_REQUEST['username'] = '';
+                            //ユーザー名とコメント内容を受け取る
+                            //$comment = $_REQUEST['message'];
+                            $comment = htmlspecialchars($_REQUEST['message']);//SQLインジェクション対応済み？
+                            $time = date("Y/m/d H:i:s");
+                            $username = htmlspecialchars($_REQUEST['name']);//SQLインジェクション対応済み？
+                            
+                            //内容の重複確認
+                            $sql = $pdo->prepare('SELECT * FROM `comment_test` WHERE script = ? and username = ?');
+                            $sql->execute([$comment,$username]);
+                            $sql_list[] = $sql->fetchAll();
+                            if (empty($sql_list[0])){
+                                $sql = $pdo->prepare('insert into comment_test (`time`, `script`,`username`) value(?, ?,?)');
+                                $sql->execute([$time,$comment,$username]);
+                                $comment = '';
+                                $time = '';
+                                $username = '';
+                                $_REQUEST['message'] = '';
+                                $_REQUEST['username'] = '';
+                            }
                         }
                     }
                     
