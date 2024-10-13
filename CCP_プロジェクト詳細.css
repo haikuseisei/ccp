@@ -93,8 +93,17 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
   border: solid 1px #000000;/*pxをいじると箱の枠線の太さ・#をいじると箱の枠線の色*/
   background-color: #ffffff;/*箱の背景色*/
 }
+.comment_input{
+  text-align: center;
+  width:80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+}
 .comment_display{
-  text-align: right;
+  text-align: left;
+}
+.comment_display ul{
+  list-style: none;
 }
 /*バナー画像のサイズ*/
 #banner{width:750px;
@@ -236,7 +245,7 @@ button input:checked+label{
 button{
     font-size:15px;
     height:30px;
-    widht:auto;
+    width:auto;
     background:#ffffb2;
     border:#ffffb2;
     color:#000000;
