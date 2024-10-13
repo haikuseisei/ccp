@@ -61,6 +61,10 @@
             </div>
         </div>
         <div>
+            <div class="box" style="text-align:center;">
+                <h2>投稿者情報</h2><br>
+                <p>プロジェクトの投稿者の情報が見れる。（名前・アカウントID・その他のプロジェクトなど）</p>
+            </div>
             <div class="box">
                 <h2>みんなのコメント</h2>
                 <div class="comment_input">
@@ -109,10 +113,6 @@
                     echo '</ul>';
                     ?>
                 </div>
-            </div>
-            <div class="box" style="text-align:center;">
-                <h2>投稿者情報</h2><br>
-                <p>プロジェクトの投稿者の情報が見れる。（名前・アカウントID・その他のプロジェクトなど）</p>
             </div>
         </div>
         </div>
