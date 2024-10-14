@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="ja">
     <head>
     <meta charset="utf-8">
@@ -10,8 +10,8 @@
         <div>
         <h1 style="text-align:center">プロジェクトのタイトル</h1>
     　　</div>
-        <div class="flex"><!--画像は暫定的に貼ってるだけ-->
-            <div class="slider" style="text-align:left;overflow:hidden;padding:30px;">
+        <div class="flex"><!画像は暫定的に貼ってるだけ>
+            <div class="slider" style="align:left;overflow:hidden;padding:30px;">
             <a href="#slide-1">1</a>
             <a href="#slide-2">2</a>
             <a href="#slide-3">3</a>
@@ -27,11 +27,11 @@
         </div>    
         <div style="padding-left:50px;padding-top:50px;">
                 <h2>支援総額　　　　　　円</h2><br>
-                <div class="bar23"></div><br><!--最終的にグラフの先に星をつける。装飾班頑張ってください。よろしくお願いします。-->
+                <div class="bar23"></div><br><!最終的にグラフの先に星をつける。装飾班頑張ってください。よろしくお願いします。>
                 <h3>　　　　　　　　　　　％</h3><br>
                 <h3>支援者数　　　　　　　人</h3>
                 <h3>残り日数　　　　　　　日</h3>
-                <h3>ジャンル：〇〇</h3><!--〇〇のところにリンク形式のジャンル名を貼る-->
+                <h3>ジャンル：〇〇</h3><!〇〇のところにリンク形式のジャンル名を貼る>
         </div>
         </div>
         <div class="flex" style="padding-left:30px;">
@@ -55,23 +55,34 @@
             </div>
         </div>
         <div>
+            <div class="box" style="text-align:center;">
+                <h2>投稿者情報</h2><br>
+                <p>プロジェクトの投稿者の情報が見れる。（名前・アカウントID・その他のプロジェクトなど）</p>
+            </div>
             <div class="box">
-                <div style="text-align:center;">
-                <h2>みんなのコメント</h2><br>
-                <!--コメント入力欄-->
-                <form method="post" action="CCP_コメント管理.html">
+                <h2>みんなのコメント</h2>
+                <div class="comment_input">
+                    <!--コメント入力欄-->
+                    <form method="post" action="CCP_プロジェクト詳細.php">
                     <p>ニックネーム：<br>
                     <input type="text" name="name" size="30"></p>
                     <p>メッセージ：<br>
                     <textarea name="message" cols="30" rows="5"></textarea></p>
                     <p><input type="submit" value="送信する"></p>
-                </form>
-                <!--コメント表示欄-->
+                    </form>
                 </div>
-            </div>
-            <div class="box" style="text-align:center;">
-                <h2>投稿者情報</h2><br>
-                <p>プロジェクトの投稿者の情報が見れる。（名前・アカウントID・その他のプロジェクトなど）</p>
+                <div class="comment_display">
+                    <li>
+                        <p class="comment_time"><time>2024-10-12</time></p>
+                        <p class="comment_username">testerさん</p>
+                        <p class="comment_script">test</p>
+                    </li>
+                    <li>
+                        <p class="comment_time"><time>2024-10-13</time></p>
+                        <p class="comment_username">テスト開発さん</p>
+                        <p class="comment_script">test</p>
+                    </li>
+                </div>
             </div>
         </div>
         </div>
