@@ -140,9 +140,9 @@
                     //コメント表示
                     foreach($pdo -> query('select `time`,`script`,`username` from `comment_test`') as $record){
                         echo '<li>';
-                        echo '<p><time>', htmlspecialchars($record['time']), '</time></p>';
-                        echo '<p>', htmlspecialchars($record['username']), 'さん</p>';
-                        echo '<p>', htmlspecialchars($record['script']),'</p>';
+                        echo '<p class="comment_time"><time>', htmlspecialchars($record['time']), '</time></p>';
+                        echo '<p class="comment_username">', htmlspecialchars($record['username']), 'さん</p>';
+                        echo '<p class="comment_script">', htmlspecialchars($record['script']),'</p>';
                         echo '</li>';
                     }
                     echo '</ul>';
