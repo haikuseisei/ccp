@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width">
         <title>会員登録</title>
 
-        <link rel="stylesheet" href="../css/signin.css">
+        <link rel="stylesheet" href="../../css/signin.css">
     </head>
     <body>
         <!--文章はMakuakeをまねした。変更するかも-->

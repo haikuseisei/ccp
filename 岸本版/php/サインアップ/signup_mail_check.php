@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width">
         <title>会員登録</title>
 
-        <link rel="stylesheet" href="../css/signin.css">
+        <link rel="stylesheet" href="../../css/signin.css">
         <?php
         $db_user='xs449197_tester1';
         $db_password='testtest1';
