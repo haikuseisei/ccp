@@ -107,11 +107,14 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 }
 .comment_display ul li p{
   margin: 0px;
-  line-height: 16px;
+  font-size: 10px;
 }
 .comment_display li .comment_script{
-  margin:5px 0px;
-  line-height: 24px;
+  font-size: 24px;
+  margin-top:2px;
+}
+.comment_display li{
+  margin :5px 0;
 }
 /*バナー画像のサイズ*/
 #banner{width:750px;

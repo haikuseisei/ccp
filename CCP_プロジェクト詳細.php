@@ -6,7 +6,6 @@
     <title>プロジェクトの詳細</title>
     <!--データベースに接続-->
     <?php
-    //アカウント情報を岸本のに変更してますto勝村
     $db_user='xs449197_kishi';
     $db_password='kHZuy7LUwi7Q';
     $pdo = new PDO('mysql:host=localhost;dbname=xs449197_test;charset=utf8',$db_user,$db_password);
