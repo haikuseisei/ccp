@@ -137,7 +137,7 @@
                     <?php
                     echo '<ul >';
                     //コメント表示
-                    foreach($pdo -> query('select `time`,`script`,`username` from `comment_test`') as $record){
+                    foreach($pdo -> query('select `time`,`script`,`username` from `comment_test` order by `time` DESC') as $record){
                         echo '<li>';
                         echo '<p class="comment_time"><time>', htmlspecialchars($record['time']), '</time></p>';
                         echo '<p class="comment_username">', htmlspecialchars($record['username']), 'さん</p>';
