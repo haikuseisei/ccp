@@ -79,6 +79,7 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
   transition: 0.7s;
   display: block;
   width: 100%;
+  animation:bar-before 1 1.8s;
   -webkit-animation: bar-before 1 1.8s;
   position: absolute;
   top: 0;
@@ -125,7 +126,7 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 /*画像カルーセル*/
 .slider{/*←ここのセレクタ勝手につけたよby岸本to勝村*/
   box-sizing: border-box;
-  align:left;
+  box-align:left;
   overflow:hidden;
   padding:30px;
 }
@@ -182,7 +183,7 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
   font-size: 100px;
 }
 .slides > div:target {
-/*   transform: scale(0.8); */
+  transform: scale(0.8);
 }
 .author-info {
   background: rgba(0, 0, 0, 0.75);
