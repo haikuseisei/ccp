@@ -13,10 +13,10 @@
     </head>
     <body>
         <div>
-        <h1 style="text-align:center">プロジェクトのタイトル</h1>
+        <h1>プロジェクトのタイトル</h1>
     　　</div>
         <div class="flex"><!画像は暫定的に貼ってるだけ>
-            <div class="slider" style="align:left;overflow:hidden;padding:30px;">
+            <div class="slider">
             <a href="#slide-1">1</a>
             <a href="#slide-2">2</a>
             <a href="#slide-3">3</a>
@@ -30,7 +30,7 @@
                 <div id="slide-5"><img src="data:image/png;base64,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"></div>
             </div>
         </div>    
-        <div style="padding-left:50px;padding-top:50px;">
+        <div>
                 <h2>支援総額　　　　　　円</h2><br>
                 <div class="bar23"></div><br><!最終的にグラフの先に星をつける。装飾班頑張ってください。よろしくお願いします。>
                 <h3>　　　　　　　　　　　％</h3><br>
@@ -39,7 +39,7 @@
                 <h3>ジャンル：〇〇</h3><!〇〇のところにリンク形式のジャンル名を貼る>
         </div>
         </div>
-        <div class="flex" style="padding-left:30px;">
+        <div class="flex">
             <br><br>
             <a href="https://twitter.com/?lang=ja"><button>Xでシェア</button></a><p>&emsp;&emsp;</p>
             <a href="https://www.instagram.com/"><button>Instagramでシェア</button></a><p>&emsp;&emsp;</p>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div>
-            <div class="box" style="text-align:center;">
+            <div class="box">
                 <h2>投稿者情報</h2><br>
                 <p>プロジェクトの投稿者の情報が見れる。（名前・アカウントID・その他のプロジェクトなど）</p>
             </div>

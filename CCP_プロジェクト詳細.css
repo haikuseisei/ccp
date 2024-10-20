@@ -7,6 +7,7 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 /* 横並び */
 .flex {
   display: flex; /*横並び*/
+  padding-left:30px;
 }
 .flex .image {
   width:150px; 
@@ -124,6 +125,9 @@ body{background-color:#e5ffff} /*サイトの背景色調整。画像が見や�
 /*画像カルーセル*/
 .slider{/*←ここのセレクタ勝手につけたよby岸本to勝村*/
   box-sizing: border-box;
+  align:left;
+  overflow:hidden;
+  padding:30px;
 }
  
 .slider {
@@ -275,4 +279,7 @@ a{
 }
 textarea{
   border-radius:10px;
+}
+h1{
+  text-align:center;
 }
