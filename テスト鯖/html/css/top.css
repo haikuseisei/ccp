@@ -1,0 +1,192 @@
+@import url(destyle.css);
+html {
+    scroll-behavior: smooth; /*　スムーススクロール */
+}
+body {
+    background-color: #ADE0EE;
+}
+.top {
+    display:flex;
+}
+.top > p {
+    width:15%;
+    padding: auto 0;
+}
+.top > p img {
+    width:100%;
+    display:block;
+}
+.Slideshow {
+    width: 100%;
+    margin:10px auto;
+}
+.Slideshow p {
+    text-align: center;
+    height: 100%;
+}
+
+article {
+    width: 60%;
+    margin: 20px auto;
+    padding: 5px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.content {
+    width:22%;
+    margin : 10px 1.5%;
+    box-shadow: 0 0 8px rgb(0, 0, 0, .4);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.slider .content {
+    width:100%;
+}
+.content:hover{
+    transform: scale(1.05,1.05);
+    cursor: pointer;
+}
+.content img {
+    width: 100%;
+    aspect-ratio: 3 / 2; /*プロジェクトサムネイルの推奨アスペクト比（縦/横）*/
+    object-fit: contain;
+}
+.contents {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom:15px;
+}
+.viewmore p{
+    width: 100%;
+    font-size: 15px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px #d1d1d1 solid;
+    border-radius: 50%;
+    text-align: center;
+
+    background-color: #fff;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+.viewmore p:hover{
+  background: linear-gradient(135deg, rgb(82,35,199), rgb(190,248,249));
+}
+.viewmore{
+  display: block;
+  width: 200px;
+  height: 55px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 50px;
+  padding: 10px;
+}
+  
+
+.topBtn {
+  width: 100px;
+  height: 100px;
+  z-index: 200;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  border-radius: 50%;
+  background-color: aqua;
+  text-align: center;
+  padding: 3px;
+  opacity: 0;
+  box-shadow: 0 0 8px rgb(0, 0, 0, .4);
+}
+.topBtn img {
+  width: 100%;
+  height: 100%;
+}
+
+.topBtn:hover {
+    transform: scale(1.05,1.05);
+    cursor : pointer;
+}
+
+/*スライドショーのCSS*/
+.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:94%;
+        margin:0 auto;
+    }
+
+    .slider img {
+        width:100%;/*スライダー内の画像を横幅100%に*/
+        height:auto;
+    }
+
+    /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+    .slider .slick-slide {
+        margin:0 10px;
+    }
+
+    /*矢印の設定*/
+
+    /*戻る、次へ矢印の位置*/
+    .slick-prev, 
+    .slick-next {
+        position: absolute;/*絶対配置にする*/
+        top: 42%;
+        cursor: pointer;/*マウスカーソルを指マークに*/
+        outline: none;/*クリックをしたら出てくる枠線を消す*/
+        border-top: 2px solid #666;/*矢印の色*/
+        border-right: 2px solid #666;/*矢印の色*/
+        height: 15px;
+        width: 15px;
+    }
+
+    .slick-prev {/*戻る矢印の位置と形状*/
+        left: -1.5%;
+        transform: rotate(-135deg);
+    }
+
+    .slick-next {/*次へ矢印の位置と形状*/
+        right: -1.5%;
+        transform: rotate(45deg);
+    }
+
+    /*ドットナビゲーションの設定*/
+
+    .slick-dots {
+        text-align:center;
+    margin:20px 0 0 0;
+    }
+
+    .slick-dots li {
+        display:inline-block;
+    margin:0 5px;
+    }
+
+    .slick-dots button {
+        color: transparent;
+        outline: none;
+        width:8px;/*ドットボタンのサイズ*/
+        height:8px;/*ドットボタンのサイズ*/
+        display:block;
+        border-radius:50%;
+        background:#ccc;/*ドットボタンの色*/
+    }
+
+    .slick-dots .slick-active button{
+        background:#333;/*ドットボタンの現在地表示の色*/
+    }
+
+
+    /*========= レイアウトのためのCSS ===============*/
+
+
+
+    ul{
+    margin:0;
+    padding: 0;
+    list-style: none;
+    }
