@@ -18,9 +18,9 @@
         session_start();
         if (isset($_REQUEST['uuid'])){
             //uuid定義済み
-            $sql = $pdo->prepare('select * from user_table where mail = ? and uuid = ?');
+            $sql = $pdo->prepare('select * from user_table where mail = ? and uuid = ?;');
             $sql->execute([htmlspecialchars($_SESSION['user']['mail']),htmlspecialchars($_REQUEST['uuid'])]);
-            if (empty($sql->fetchAll)){
+            if (empty($sql->fetchAll())){
                 //間違い
                 require 'signup_mail_check_err.php';
 
@@ -28,7 +28,7 @@
             else{
                 //成功
                 $sql = $pdo->prepare('update user_table set flag = ? where mail = ?');
-                $sql->execute(11,$_SESSION['user']['mail']);
+                $sql->execute([11,$_SESSION['user']['mail']]);
                 echo'<!--文章はMakuakeをまねした。変更するかも-->
                     <div class="content">
                         <h1>会員登録</h1>

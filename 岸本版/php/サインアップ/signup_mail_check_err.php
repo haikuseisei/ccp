@@ -16,9 +16,11 @@
     </head>
     <body>
         <?php
-        if (isset($_REQUEST['user'])) {
+        if (isset($_SESSION['user'])) {
             //セッション定義済
             session_start();
+            echo $_SESSION['user']['mail'];
+            echo $_REQUEST['uuid'];
                 echo '
                 <!--文章はMakuakeをまねした。変更するかも-->
                 <div class="content">

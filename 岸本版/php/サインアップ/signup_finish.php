@@ -17,7 +17,7 @@
     <body>
         <?php
         //ユーザー情報登録処理
-        $sql = $pdo->prepare('update user_table set username = ? pass = ? where mail = ? ');
+        $sql = $pdo->prepare('update user_table set username = ?, pass = ? where mail = ?;');
             $sql->execute([htmlspecialchars($_REQUEST['username']),htmlspecialchars($_REQUEST['password']),$_SESSION['user']['mail']]);
 
 
@@ -34,6 +34,6 @@
             </div>
         </div>
         ';
-
+        ?>
     </body>
 </html>
