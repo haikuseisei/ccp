@@ -1,0 +1,286 @@
+/*背景色の設定*/
+body{background-color:#e5ffff} /*サイトの背景色調整。画像が見やすいように青にしてる部分もあるので好きにしてください*/
+/*バナー画像のサイズ*/
+#banner{width:750px; /*バナー画像の横サイズ。縦は一旦自動調整にしてます*/
+        height:auto
+}
+/* 横並び */
+.flex {
+  display: flex; /*横並び*/
+  padding-left:30px;
+}
+.flex .image {
+  width:150px; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.flex .text {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+/*改行用class*/
+.ss {
+  margin-bottom: 0.5em;
+}
+
+/* 画像を天地中央表示 */
+
+.flex .image::before {
+  content: "";
+  display: block;
+  padding-top: 58%;
+}
+.flex .image img {
+  width:150px; /*バナー下の画像（並んでるやつ）サイズ指定横*/
+  height:100px;/*バナー下の画像（並んでるやつ）サイズ指定縦*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*以下棒グラフのCSS*/
+.graph-cont{
+  width: calc(100% - 40px);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.bar23{
+  height: 30px;
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  line-height: 30px;
+  font-size: 16px;
+  color: white;
+  padding: 0 0 0 10px;
+  position: relative;
+}
+
+.bar23::before{
+  content:'';
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 30px;
+  top: 0;
+  z-index: 0;
+  background: #ecf0f1;
+}
+.bar23::after{
+  content: '';
+  background: #daa520;
+  height: 30px;
+  transition: 0.7s;
+  display: block;
+  width: 100%;
+  animation:bar-before 1 1.8s;
+  -webkit-animation: bar-before 1 1.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  max-width: 60%;/*ここの数字をいじればグラフの長さが変わる*/
+}
+/*箱で文字を囲むためのクラス*/
+.box{
+  text-align:"center";
+  width:500px;
+  margin: 5em;
+  border: solid 1px #000000;/*pxをいじると箱の枠線の太さ・#をいじると箱の枠線の色*/
+  background-color: #ffffff;/*箱の背景色*/
+}
+.comment_input{
+  text-align: center;
+  width:80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+}
+.comment_display{
+  text-align: left;
+}
+.comment_display ul{
+  list-style: none;
+}
+.comment_display ul li p{
+  margin: 0px;
+  font-size: 10px;
+}
+.comment_display li .comment_script{
+  font-size: 24px;
+  margin-top:2px;
+}
+.comment_display li{
+  margin :5px 0;
+}
+/*バナー画像のサイズ*/
+#banner{width:750px;
+        height:auto
+}
+
+/*画像カルーセル*/
+.slider{/*←ここのセレクタ勝手につけたよby岸本to勝村*/
+  box-sizing: border-box;
+  box-align:left;
+  overflow:hidden;
+  padding:30px;
+}
+ 
+.slider {
+  width: 800px;
+  text-align: center;
+  overflow: hidden;
+}
+ 
+.slides {
+  display: flex;
+  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 800px;
+  height: 500px;
+  margin-right: 50px;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.slides > div:target {
+  transform: scale(0.8);
+}
+.author-info {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+.author-info a {
+  color: white;
+}
+img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+ 
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+.slider > a:active {
+  top: 1px;
+}
+.slider > a:focus {
+  background: #000;
+}
+ 
+/* Don't need button navigation */
+@supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+}
+ 
+html, body {
+  height: 100%;
+}
+/*ボタンのデザイン*/
+button label{
+    display:block;
+    width: 50px;
+    height:30px;
+    color: #000000;
+    padding:0px;
+    margin:0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+button input:checked+label{
+    background: #ffcce5;
+    border:#ffcce5;
+    color: #000000;
+    margin:0px;
+    padding-block:0px;
+    padding-inline:0px;
+}
+button{
+    font-size:15px;
+    height:30px;
+    width:auto;
+    background:#ffffb2;
+    border:#ffffb2;
+    color:#000000;
+    border-radius:30px;
+    margin:0px;
+    padding-inline:0px;
+    padding-block:0px;
+    cursol:pointer;
+}
+button input{
+  display: none;
+}
+a{
+  height:15px;
+  cursor:pointer;
+}
+textarea{
+  border-radius:10px;
+}
+h1{
+  text-align:center;
+}
