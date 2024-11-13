@@ -14,9 +14,9 @@
             <h1>会員登録</h1>
             <p>登録に使用するメールアドレスを入力してください。</p>
             <form action="signup_mail_check.php">
-            <div id="errorMessage" style="color: red;">入力されたメールアドレスは使用できません</div>
                 <label for="mymail">メールアドレス:</label>
-                <input type="email" name="mymail" placeholder="mail@example.com" required>
+                <input type="email" name="mymail" value=" <?php echo htmlspecialchars($_REQUEST['mymail']); ?> " required>
+                <p style="color:red;">このメールアドレスは既に使われています。</p>
                 <button type="submit">確認メールを送信して仮登録する</button>
             </form>
             <div id="errorMessage" style="color: red;"></div>

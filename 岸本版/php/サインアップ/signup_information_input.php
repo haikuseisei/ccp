@@ -15,11 +15,17 @@
     </head>
     <body>
         <?php
-        if (isset($_REQUEST('uuid'))){
+        session_start();
+        if (isset($_REQUEST['uuid'])){
             //uuid定義済み
-            $sql = $pdo->prepare('select * from user_table where mail = ? and ssid = ?');
-            $sql->execute([htmlspecialchars($_REQUEST['mail']),htmlspecialchars($_REQUEST['ssid'])]);
-            if (!empty($sql->fetchAll)){
+            $sql = $pdo->prepare('select * from user_table where mail = ? and uuid = ?');
+            $sql->execute([htmlspecialchars($_SESSION['user']['mail']),htmlspecialchars($_REQUEST['uuid'])]);
+            if (empty($sql->fetchAll)){
+                //間違い
+                require 'signup_mail_check_err.php';
+
+            }
+            else{
                 //成功
                 $sql = $pdo->prepare('update user_table set flag = ? where mail = ?');
                 $sql->execute(11,$_SESSION['user']['mail']);
@@ -37,15 +43,6 @@
                         <div id="errorMessage" style="color: red;"></div>
                     </div>
                     ';
-
-
-
-
-            }
-            else{
-                //間違い
-                echo'正しくないコードです
-                確認してください';
             }
         }
         else{
