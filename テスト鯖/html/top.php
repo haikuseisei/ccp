@@ -16,7 +16,7 @@
     <body>
         <header style="height:60px;">
             <!--後でheader.htmlと合わせる-->
-            <?php require 'index.html' ?>
+            <?php require 'header_kari.html' ?>
         </header>
 
         <!--トップに戻るボタン-->
