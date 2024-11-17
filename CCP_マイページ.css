@@ -1,0 +1,101 @@
+/*背景色の設定*/
+body{background-color:#e5ffff} /*サイトの背景色調整。画像が見やすいように青にしてる部分もあるので好きにしてください*/
+/*その他諸々*/
+h1{
+    text-align:center;
+    }
+/* 横並び */
+.flex {
+  display: flex; /*横並び*/
+}
+.flex .image {
+  width:150px; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.flex .text {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+/*プロジェクトの画像*/
+.content{
+    margin:2em;
+    margin-top:2em;
+    margin-bottom:2em;
+}
+
+/* 画像を天地中央表示 */
+
+.flex .image::before {
+  content: "";
+  display: block;
+  padding-top: 58%;
+}
+.flex .image img {
+  width:150px; /*バナー下の画像（並んでるやつ）サイズ指定横*/
+  height:100px;/*バナー下の画像（並んでるやつ）サイズ指定縦*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/*箱で文字を囲むためのクラス*/
+.box{
+  align:center;
+  text-align:center;
+  width:300px;
+  padding-top:3em;
+  padding-bottom:3em;
+  border: solid 1px #000000;/*pxをいじると箱の枠線の太さ・#をいじると箱の枠線の色*/
+  background-color: #ffffff;/*箱の背景色*/
+}
+
+/*ボタンのデザイン*/
+button label{
+    display:block;
+    width: 50px;
+    height:30px;
+    color: #000000;
+    padding:0px;
+    margin:0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+button input:checked+label{
+    background: #ffcce5;
+    border:#ffcce5;
+    color: #000000;
+    margin:0px;
+    padding-block:0px;
+    padding-inline:0px;
+}
+button{
+    font-size:15px;
+    height:30px;
+    widht:auto;
+    background:#ffffb2;
+    border:#ffffb2;
+    color:#000000;
+    border-radius:30px;
+    margin:0px;
+    padding-inline:0px;
+    padding-block:0px;
+    cursol:pointer;
+}
+button input{
+    display: none;
+}
+a{
+    height:15px;
+    cursor:pointer;
+}
+textarea{
+    border-radius:10px
+}
