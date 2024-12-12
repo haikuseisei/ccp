@@ -46,7 +46,6 @@ h1{
 
 /*箱で文字を囲むためのクラス*/
 .box{
-  align:center;
   text-align:center;
   width:300px;
   padding-top:3em;
@@ -79,7 +78,7 @@ button input:checked+label{
 button{
     font-size:15px;
     height:30px;
-    widht:auto;
+    width:auto;
     background:#ffffb2;
     border:#ffffb2;
     color:#000000;
@@ -87,7 +86,6 @@ button{
     margin:0px;
     padding-inline:0px;
     padding-block:0px;
-    cursol:pointer;
 }
 button input{
     display: none;
